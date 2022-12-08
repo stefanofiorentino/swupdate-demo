@@ -62,6 +62,9 @@ local_conf_header:
     SDKMACHINE = "x86_64"
     USER_CLASSES = "buildstats"
     PATCHRESOLVE = "noop"
+  raspberrypi: |
+    RPI_USE_U_BOOT = "1"
+    IMAGE_FSTYPES += "ext4.gz"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES = "debug-tweaks"
   diskmon: |
