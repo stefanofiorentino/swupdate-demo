@@ -43,11 +43,6 @@ repos:
     path: layers/meta-raspberry 
     refspec: kirkstone
 
-  meta-qt5:
-    url: https://github.com/meta-qt5/meta-qt5/
-    path: layers/meta-qt5
-    refspec: master
-
 bblayers_conf_header:
   standard: |
     POKY_BBLAYERS_CONF_VERSION = "2"
