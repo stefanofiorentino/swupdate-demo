@@ -60,8 +60,9 @@ local_conf_header:
   raspberrypi: |
     ENABLE_UART = "1"
     RPI_USE_U_BOOT = "1"
-    IMAGE_FSTYPES = "rpi-sdimg ext4.gz"
+    IMAGE_FSTYPES = "rpi-sdimg wic ext4.gz"
     PREFERRED_PROVIDER_u-boot-fw-utils = "libubootenv"
+    WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES = "debug-tweaks"
   diskmon: |
