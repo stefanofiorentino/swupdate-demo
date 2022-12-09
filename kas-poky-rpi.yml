@@ -31,12 +31,12 @@ repos:
   meta-swupdate: 
     url: https://github.com/sbabic/meta-swupdate
     path: layers/meta-swupdate
-    refspec: master
+    refspec: kirkstone
 
   meta-swupdate-boards: 
     url: https://github.com/sbabic/meta-swupdate-boards
     path: layers/meta-swupdate-boards  
-    refspec: master
+    refspec: kirkstone
 
   meta-raspberry: 
     url: git://git.yoctoproject.org/git/meta-raspberrypi
