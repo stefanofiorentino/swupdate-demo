@@ -61,6 +61,7 @@ local_conf_header:
     ENABLE_UART = "1"
     RPI_USE_U_BOOT = "1"
     IMAGE_FSTYPES = "rpi-sdimg wic.bz2 ext4.gz"
+    PREFERRED_PROVIDER_u-boot-fw-utils = "libubootenv"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES = "debug-tweaks"
   diskmon: |
