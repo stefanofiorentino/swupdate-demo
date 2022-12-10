@@ -62,7 +62,7 @@ local_conf_header:
     RPI_USE_U_BOOT = "1"
   swu-specific: |
     IMAGE_FSTYPES += " ext4.gz wic"
-    WKS_FILES_raspberrypi3 = "ts-raspberrypi.wks"    
+    WKS_FILES = "ts-raspberrypi.wks"    
     CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-progress swupdate-www swupdate-tools"
     DISTRO_FEATURES:append = " systemd"
     DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
