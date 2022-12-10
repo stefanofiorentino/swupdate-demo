@@ -65,7 +65,7 @@ local_conf_header:
   swu-specific: |
     IMAGE_FSTYPES += " ext4.gz wic"
     WKS_FILES = "ts-raspberrypi.wks"    
-    CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-progress swupdate-www swupdate-tools"
+    CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-tools"
     DISTRO_FEATURES:append = " systemd"
     DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
     VIRTUAL-RUNTIME_init_manager = "systemd"
@@ -82,3 +82,14 @@ local_conf_header:
         HALT,${DL_DIR},100M,1K \
         HALT,${SSTATE_DIR},100M,1K \
         HALT,/tmp,10M,1K"
+  Yocto Sstate cache: |
+    BB_SIGNATURE_HANDLER = "OEEquivHash"
+    BB_HASHSERVE = "auto"
+    BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
+    SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+  Yocto Source mirror: |
+    MIRRORS:append = "\
+      git://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      ftp://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      http://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
+      https://.*/.* https://downloads.yoctoproject.org/mirror/sources/"        
