@@ -57,6 +57,7 @@ local_conf_header:
     SDKMACHINE = "x86_64"
     USER_CLASSES = "buildstats"
     PATCHRESOLVE = "noop"
+    EXTRA_IMAGE_FEATURES += "read-only-rootfs"
   raspberrypi: |
     ENABLE_UART = "1"
     RPI_USE_U_BOOT = "1"
