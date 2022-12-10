@@ -28,6 +28,11 @@ repos:
       meta-networking:
       meta-perl:
 
+  meta-raspberry: 
+    url: git://git.yoctoproject.org/git/meta-raspberrypi
+    path: layers/meta-raspberry 
+    refspec: kirkstone
+
   meta-swupdate: 
     url: https://github.com/sbabic/meta-swupdate
     path: layers/meta-swupdate
@@ -38,16 +43,12 @@ repos:
     path: layers/meta-swupdate-boards  
     refspec: kirkstone
 
-  meta-raspberry: 
-    url: git://git.yoctoproject.org/git/meta-raspberrypi
-    path: layers/meta-raspberry 
-    refspec: kirkstone
-
 bblayers_conf_header:
   standard: |
     POKY_BBLAYERS_CONF_VERSION = "2"
     BBPATH = "${TOPDIR}"
     BBFILES ?= ""
+
 local_conf_header:
   reduce_diskspace: |
     INHERIT += "rm_work_and_downloads"
