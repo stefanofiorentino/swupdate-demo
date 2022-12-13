@@ -28,19 +28,19 @@ repos:
       meta-networking:
       meta-perl:
 
-  meta-raspberry: 
+  meta-raspberry:
     url: git://git.yoctoproject.org/git/meta-raspberrypi
-    path: layers/meta-raspberry 
+    path: layers/meta-raspberry
     refspec: kirkstone
 
-  meta-swupdate: 
+  meta-swupdate:
     url: https://github.com/sbabic/meta-swupdate
     path: layers/meta-swupdate
     refspec: kirkstone
 
-  meta-swupdate-boards: 
+  meta-swupdate-boards:
     url: https://github.com/sbabic/meta-swupdate-boards
-    path: layers/meta-swupdate-boards  
+    path: layers/meta-swupdate-boards
     refspec: kirkstone
 
 bblayers_conf_header:
@@ -64,7 +64,7 @@ local_conf_header:
     RPI_USE_U_BOOT = "1"
   swu-specific: |
     IMAGE_FSTYPES += " ext4.gz wic"
-    WKS_FILES = "ts-raspberrypi.wks"    
+    WKS_FILES = "ts-raspberrypi.wks"
     CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-tools"
     DISTRO_FEATURES:append = " systemd"
     DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
@@ -92,4 +92,4 @@ local_conf_header:
       git://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
       ftp://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
       http://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
-      https://.*/.* https://downloads.yoctoproject.org/mirror/sources/"        
+      https://.*/.* https://downloads.yoctoproject.org/mirror/sources/"
