@@ -4,11 +4,9 @@ header:
 machine: raspberrypi3
 distro: poky
 target:
-  - update-image
+  - core-image-full-cmdline
 
 repos:
-  meta-raspberry:
-
   poky:
     url: git://git.yoctoproject.org/git/poky
     path: layers/poky
@@ -33,16 +31,6 @@ repos:
     path: layers/meta-raspberry
     refspec: kirkstone
 
-  meta-swupdate:
-    url: https://github.com/sbabic/meta-swupdate
-    path: layers/meta-swupdate
-    refspec: kirkstone
-
-  meta-swupdate-boards:
-    url: https://github.com/sbabic/meta-swupdate-boards
-    path: layers/meta-swupdate-boards
-    refspec: kirkstone
-
 bblayers_conf_header:
   standard: |
     POKY_BBLAYERS_CONF_VERSION = "2"
@@ -50,8 +38,6 @@ bblayers_conf_header:
     BBFILES ?= ""
 
 local_conf_header:
-  reduce_diskspace: |
-    INHERIT += "rm_work_and_downloads"
   standard: |
     CONF_VERSION = "2"
     PACKAGE_CLASSES = "package_rpm"
@@ -63,13 +49,7 @@ local_conf_header:
     ENABLE_UART = "1"
     RPI_USE_U_BOOT = "1"
   swu-specific: |
-    IMAGE_FSTYPES += " ext4.gz wic"
-    WKS_FILES = "ts-raspberrypi.wks"
-    CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-tools"
-    DISTRO_FEATURES:append = " systemd"
-    DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
-    VIRTUAL-RUNTIME_init_manager = "systemd"
-    VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+    IMAGE_FSTYPES += " wic"
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES = "debug-tweaks"
   diskmon: |
