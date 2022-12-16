@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        swupdate: [swupdate]
+        machine: [raspberrypi3]
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt-get update && sudo apt-get install -y gawk wget git diffstat unzip texinfo gcc build-essential \
+        chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git \
+        python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev zstd liblz4-tool
+    - uses: actions/checkout@v1
+    - name: Install kas
+      run: |
+        sudo pip3 install kas
+    - name: Run kas for ${{ matrix.machine }} with ${{ matrix.swupdate }}
+      run: kas build kas-${{ matrix.machine }}.yml:kas-${{ matrix.swupdate }}.yml
