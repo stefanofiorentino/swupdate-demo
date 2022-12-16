@@ -19,4 +19,9 @@ local_conf_header:
   swu-specific: |
     IMAGE_FSTYPES += " ext4.gz"
     WKS_FILES = "ts-raspberrypi.wks"
-    CORE_IMAGE_EXTRA_INSTALL:append = " libubootenv-bin swupdate swupdate-www swupdate-progress swupdate-tools"
+    CORE_IMAGE_EXTRA_INSTALL:append = " \
+      libubootenv-bin \
+      swupdate \
+      swupdate-www \
+      swupdate-progress \
+      swupdate-tools"
