@@ -45,13 +45,20 @@ local_conf_header:
     USER_CLASSES = "buildstats"
     PATCHRESOLVE = "noop"
     EXTRA_IMAGE_FEATURES += "read-only-rootfs"
+
   raspberrypi: |
     ENABLE_UART = "1"
     RPI_USE_U_BOOT = "1"
-  swu-specific: |
     IMAGE_FSTYPES += " wic"
+    WKS_FILES = "sdimage-raspberrypi.wks"
+    DISTRO_FEATURES:append = " systemd"
+    DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+    VIRTUAL-RUNTIME_init_manager = "systemd"
+    VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+
   debug-tweaks: |
     EXTRA_IMAGE_FEATURES = "debug-tweaks"
+
   diskmon: |
     BB_DISKMON_DIRS = "\
         STOPTASKS,${TMPDIR},1G,100K \
@@ -62,11 +69,13 @@ local_conf_header:
         HALT,${DL_DIR},100M,1K \
         HALT,${SSTATE_DIR},100M,1K \
         HALT,/tmp,10M,1K"
+
   Yocto Sstate cache: |
     BB_SIGNATURE_HANDLER = "OEEquivHash"
     BB_HASHSERVE = "auto"
     BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
     SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+
   Yocto Source mirror: |
     MIRRORS:append = "\
       git://.*/.* https://downloads.yoctoproject.org/mirror/sources/ \
