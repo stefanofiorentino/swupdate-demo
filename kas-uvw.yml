@@ -1,0 +1,13 @@
+header:
+  version: 8
+
+repos:
+  meta-uvw:
+    url: git://github.com/stefanofiorentino/meta-uvw.git
+    path: layers/meta-uvw
+    refspec: kirkstone
+
+local_conf_header:
+  uvw: |
+    CORE_IMAGE_EXTRA_INSTALL:append = " \
+      uvw"
