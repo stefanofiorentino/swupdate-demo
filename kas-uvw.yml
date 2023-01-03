@@ -3,7 +3,7 @@ header:
 
 repos:
   meta-uvw:
-    url: git://github.com/stefanofiorentino/meta-uvw.git
+    url: https://github.com/stefanofiorentino/meta-uvw.git
     path: layers/meta-uvw
     refspec: kirkstone
 
