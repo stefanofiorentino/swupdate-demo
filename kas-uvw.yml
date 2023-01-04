@@ -10,4 +10,5 @@ repos:
 local_conf_header:
   uvw: |
     CORE_IMAGE_EXTRA_INSTALL:append = " \
-      uvw"
+      uvw-example \
+      "
