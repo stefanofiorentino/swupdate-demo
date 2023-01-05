@@ -1,0 +1,11 @@
+header:
+  version: 8
+
+target:
+  - rpi-test-image
+
+local_conf_header:
+  bluetooth: |
+    CORE_IMAGE_EXTRA_INSTALL:append = " \
+      packagegroup-tools-bluetooth \
+      "
